@@ -1,5 +1,5 @@
 module.exports ={
 
-    mongoDB_URI: 'mongodb+srv://dmuthui:0721559122@onlineproductapp.0clbbvq.mongodb.net/test'
+    mongoDB_URI: 'mongodb+srv://Capstone:12345@capstone-project.siy8jdr.mongodb.net/test'
  
  }

@@ -30,7 +30,7 @@ router.post('/', (req,res)=>{
        res.json(product)
    })
 })
-// @route PUT api/products/:id
+
 // @desc  Update a product
 router.put('/:id', (req,res)=>{
    // Update a product in the database
@@ -44,7 +44,7 @@ router.put('/:id', (req,res)=>{
        res.json(product)
    })
 })
-// @route DELETE api/products/:id
+
 // @desc  Delete a product
 router.delete('/:id', (req,res)=>{
    // Delete a product from database
