@@ -1,10 +1,10 @@
+//Initialising imports
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-
 const productRoute = require('./routes/productRoutes');
-const uploadFiles = require('./routes/uploadFiles');
+const Product = require('./models/product');
+
 
 // Initializing express
 const app = express()
@@ -15,50 +15,32 @@ app.use(cors())
 
 
 //DB config
-const MONGODB_URI= process.env.MONGODB_URI ||
-
-require('./config').mongoDB_URI
+const MONGODB_URI = process.env.MONGODB_URI ||
+   require('./config').mongoDB_URI
 
 // Connect to MongoDB
-
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true  })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 // Check Connection
 let db = mongoose.connection;
-
-db.once('open', ()=>{
-
-   console.log('Database connected successfully')
-
+db.once('open', () => {
+   console.log('Database connected successfully!')
 })
 
 // Check for DB Errors
-
-db.on('error', (error)=>{
-
+db.on('error', (error) => {
    console.log(error);
+   mongoose.set('StrictQuery', true);
+})
 
-mongoose.set('StrictQuery', true);
-   // Use Routes
- })
- app.use('/product', productRoute)  //new code
- app.use(uploadFiles);
- 
-//  // Serve our static assets if in production
-if(process.env.NODE_ENV === 'production'){
-   // set a static folder
-   app.use(express.static('client/build'));
+// Use Routes
+app.use('/Product', productRoute)
 
-   app.get('*', (req,res)=>{
-       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
-   })
-
-}
- 
 // Define the PORT
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, ()=>{
+//Listening to port
+app.listen(PORT, () => {
    console.log(`Server listening on port ${PORT}`)
 })
