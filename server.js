@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const productRoute = require('./routes/productRoutes');
-const Product = require('./models/product');
+const Product = require('./models/products');
 
 
 // Initializing express
@@ -37,7 +37,7 @@ db.on('error', (error) => {
 app.use('/Product', productRoute)
 
 // Define the PORT
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5005
 
 //Listening to port
 app.listen(PORT, () => {
