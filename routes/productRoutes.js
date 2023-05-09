@@ -43,6 +43,7 @@ router.post('/', (req, res) => {
     description: req.body.description,
     price: req.body.price,
     quantity: req.body.quantity,
+    image:req.body.image
   });
 
   newProduct.save()

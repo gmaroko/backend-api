@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dashboardRouter = require('./routes/dashboardRoutes');
+const productsRouter = require('./routes/productRoutes');
 
 const app = express();
+
 
 // Middleware
 app.use(bodyParser.json());
@@ -28,9 +31,6 @@ db.on('error', (error) => {
 })
 
 // Routes
-const dashboardRouter = require('./routes/dashboardRoutes');
-const productsRouter = require('./routes/productRoutes');
-
 app.use('/api/dashboard', dashboardRouter);
 app.use('/api/products', productsRouter);
 
