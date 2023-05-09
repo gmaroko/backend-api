@@ -9,7 +9,10 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+   origin: 'https://captsone-project-retailsales-app-client.onrender.com/api/dashboard',
+   allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Headers']
+}));
 
 //DB config
 const MONGODB_URI = process.env.MONGODB_URI || require('./config').mongoDB_URI;
