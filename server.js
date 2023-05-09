@@ -7,7 +7,6 @@ const productsRouter = require('./routes/productRoutes');
 
 const app = express();
 
-
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
