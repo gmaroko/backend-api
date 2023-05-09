@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //DB config
-const MONGODB_URI = process.env.MONGODB_URI || require('./config').mongoDB_URI
+const MONGODB_URI = process.env.MONGODB_URI || require('./config').mongoDB_URI;
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
