@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
   // Fetch dashboard data from database using a Promise
   Dashboard.findOne(query)
     .then(dashboard => {
-      res.header('Access-Control-Allow-Origin', 'https://captsone-project-retailsales-app-client.onrender.com');
       res.json(dashboard);
     })
     .catch(error => {
@@ -31,7 +30,6 @@ router.put('/', (req, res) => {
   // Update dashboard data in the database using a Promise
   Dashboard.findOneAndUpdate(query, req.body, { new: true, upsert: true })
     .then(dashboard => {
-      res.header('Access-Control-Allow-Origin', 'https://captsone-project-retailsales-app-client.onrender.com');
       res.json(dashboard);
     })
     .catch(error => {
