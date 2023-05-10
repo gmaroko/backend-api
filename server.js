@@ -9,16 +9,13 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors({
-   origin: 'https://captsone-project-retailsales-app-client.onrender.com/api/dashboard',
-   allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Headers']
-}));
-app.use((req, res, next) => {
-   res.setHeader('Access-Control-Allow-Origin', '*');
-   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-   next();
- });
+app.use(cors());
+// app.use((req, res, next) => {
+//    res.setHeader('Access-Control-Allow-Origin', '*');
+//    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//    next();
+//  });
 
 //DB config
 const MONGODB_URI = process.env.MONGODB_URI || require('./config').mongoDB_URI;
